@@ -7,17 +7,9 @@ A simple HSA application that enumerates all possible platform and device proper
 `hsainfo` is made from single CPP source file. To build:
 	make build
 
-To Run:
-	make test
-
-
 ## Run
 
-Just type: `hsainfo`
-
-`hsainfo` displays the HSA platform and device parameters in a human readable form.
-
-By default, hsainfo only displays a few basic parameters.
+	make test
 
 ## License
 
