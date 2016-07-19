@@ -3,14 +3,14 @@
 #include <cstdlib>
 #include <vector>
 #include <mutex>
-#include "hsa.h"
-#include "hsa_ext_finalize.h"
+#include <hsa.h>
 
-std::string data_size_to_string(size_t size){
+std::string data_size_to_string(unsigned long long int size){
 	if (size < 1024) return std::to_string(size) + " B";
-	else if (size < 1024*1024) return std::to_string(size/1024.0) + " KB";
-	else if (size < 1024*1024*1024) return std::to_string(size/1024.0/1024) + " MB";
-	else return std::to_string(size/1024.0/1024/1024) + " GB ";
+	else if (size < 1024.0*1024) return std::to_string(size/1024.0) + " KB";
+	else if (size < 1024.0*1024*1024) return std::to_string(size/1024.0/1024) + " MB";
+	else if (size < 1024.0*1024*1024*1024) return std::to_string(size/1024.0/1024/1024) + " GB";
+	else return std::to_string(size/1024.0/1024/1024/1024) + " TB ";
 }
 
 static hsa_status_t get_agent(hsa_agent_t agent, void *data) {

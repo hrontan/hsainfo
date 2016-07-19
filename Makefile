@@ -1,10 +1,8 @@
-HSA_RUNTIME_PATH=/opt/hsa
-HSA_LLVM_PATH=/opt/amd/cloc/bin
-export LD_LIBRARY_PATH=$(HSA_RUNTIME_PATH)/lib
+HSA_RUNTIME_PATH?=/opt/rocm/hsa
 CXX?=g++
 CXXFLAGS=-Wall -Weffc++ -Ofast -std=gnu++11
-INCS=-I$(HSA_RUNTIME_PATH)/include
-LDFLAGS=-L$(HSA_RUNTIME_PATH)/lib -lhsa-runtime64 -lm
+INCS?=-I$(HSA_RUNTIME_PATH)/include
+LDFLAGS=-L$(HSA_RUNTIME_PATH)/lib -lhsa-runtime64
 
 all: build test
 
